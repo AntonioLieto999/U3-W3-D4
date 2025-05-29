@@ -4,7 +4,7 @@ import resultsReducers from "../reducers/resultsReducer";
 import jobsReducer from "../reducers/jobResults";
 
 const rootReducer = combineReducers({
-  favourite: favouriteReducer,
+  favourites: favouriteReducer,
   results: resultsReducers,
   jobs: jobsReducer,
 });
