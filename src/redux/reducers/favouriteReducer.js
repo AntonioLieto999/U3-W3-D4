@@ -1,21 +1,18 @@
 import { ADD_FAVOURITE, REMOVE_FAVOURITE } from "../action/index";
 
-const initialState = {
-  content: [],
-};
+const initialState = [];
 
 const favouriteReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAVOURITE:
-      return {
-        ...state,
-        content: [...state.content, action.payload],
-      };
+      if (!state.includes(action.payload)) {
+        return [...state, action.payload];
+      }
+      return state;
+
     case REMOVE_FAVOURITE:
-      return {
-        ...state,
-        content: state.content.filter((_, i) => i !== action.payload),
-      };
+      return state.filter((company) => company !== action.payload);
+
     default:
       return state;
   }
